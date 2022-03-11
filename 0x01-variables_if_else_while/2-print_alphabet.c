@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 /**
- * main - Print the alphabet in lower case
- * Return: 0
- */
+* main - print alphabet in lowercase
+*Return : 0
+*/
 int main(void)
 {
 	char letter = 'a';
