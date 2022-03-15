@@ -1,40 +1,27 @@
-#include "main.h"
 #include <stdio.h>
-
-/*Function Prototype*/
-
-void fibonacci(void);
-
+#include "main.h"
 /**
- * 104-fibonacci -  prints the first 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.
- *
- *
- * Return void
+ * main - main block
+ * Description: computes and prints the sum of all the multiples of 3 or
+ * 5 below 1024 (excluded), followed by a new line
+ * Return: 0
  */
+int main(void)
+{
+	int i = 0;
+	unsigned long int a = 0, b = 1, next = 0;
 
-int main(void){
+	while (i < 98)
+	{
+		next = a + b;
+		a = b;
+		b = next;
+		printf("%lu", next);
 
-	fibonacci();
-	return 0;
-}
-
-void fibonacci(void){
-	int count;
-	int number = 1;
-	int prevNumber = 0;
-	int fibonacci;
-
-	for(count = 0; count < 98; count++){
-	   fibonacci = number + prevNumber;
-
-	   _putchar((int)fibonacci);
-	   _putchar(',');
-	   _putchar(' ');
-
-	   prevNumber = number;
-	   number = fibonacci;
+		if (i < 97)
+			printf(", ");
+		i++;
 	}
-
-	_putchar('\n');
+	putchar('\n');
+	return (0);
 }
-
