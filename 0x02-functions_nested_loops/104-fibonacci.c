@@ -1,27 +1,61 @@
 #include <stdio.h>
-#include "main.h"
+
 /**
- * main - main block
- * Description: computes and prints the sum of all the multiples of 3 or
- * 5 below 1024 (excluded), followed by a new line
- * Return: 0
+ * main - print the first 98 fibonacci number
+ * Return: no return
  */
 int main(void)
 {
-	int i = 0;
-	unsigned long int a = 0, b = 1, next = 0;
+	long int a = 1;
+	long int b = 2;
+	long int f;
+	int i;
+	long int a1, a2, b1, b2, sum1, sum2, overflow1, overflow2, p1, p2;
 
-	while (i < 98)
+	printf("%lu, %lu, ", a, b);
+	for (i = 0; i <= 98 - 3; i++)
 	{
-		next = a + b;
-		a = b;
-		b = next;
-		printf("%lu", next);
-
-		if (i < 97)
-			printf(", ");
-		i++;
+		if (i < 89)
+		{
+			f = a + b;
+			a = b;
+			b = f;
+			printf("%lu, ", f);
+		}
+		else if (i == 89)
+		{
+			a1 = a / 10000000000;
+			a2 = a % 10000000000;
+			b1 = b / 10000000000;
+			b2 = b % 10000000000;
+			sum2 = a2 + b2;
+			p2 = sum2 % 10000000000;
+			overflow2 = sum2 / 10000000000;
+			sum1 = a1 + b1 + overflow2;
+			p1 = sum1 % 10000000000;
+			overflow1 = sum1 / 10000000000;
+			printf("%lu%lu, ", p1, p2);
+		}
+		else if (i > 89)
+		{
+			a1 = b1;
+			a2 = b2;
+			b1 = sum1;
+			b2 = p2;
+			sum2 = a2 + b2;
+			p2 = sum2 % 10000000000;
+			overflow2 = sum2 / 10000000000;
+			sum1 = a1 + b1 + overflow2;
+			p1 = sum1 % 10000000000;
+			overflow1 = sum1 / 10000000000;
+			if (i == 95)
+				printf("%lu%lu%lu", overflow1, p1, p2);
+			else if (i == 94)
+				printf("%lu%lu%lu, ", overflow1, p1, p2);
+			else
+				printf("%lu%lu, ", p1, p2);
+		}
 	}
-	putchar('\n');
+	printf("\n");
 	return (0);
 }
