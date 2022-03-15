@@ -1,5 +1,5 @@
 #include <unistd.h>
-
+#include "main.h"
 /**
  *_putcar - writes char c to stdout
  *Return: 1 on sucess
