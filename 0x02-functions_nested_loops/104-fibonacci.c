@@ -1,49 +1,28 @@
 #include <stdio.h>
 
 /**
- *main - printing the first 98 Fibonacci numbers starting with 1 and 2
- *
- *Return: The value will return 0.
+ * main - main block
+ * Description: computes and prints the sum of all the multiples of 3 or
+ * 5 below 1024 (excluded), followed by a new line
+ * Return: 0
  */
 
 int main(void)
 {
-	long int i, f, s, n, h2, h1, h3, h4, h0, h5;
+	int i = 0;
+	unsigned long int a = 0, b = 1, next = 0;
 
-	f = 0;
-	s = 1;
-	i = 0;
-	while (i < 91)
+	while (i < 98)
 	{
-		n = f + s;
-		f = s;
-		s = n;
-		printf("%ld", n);
-		printf(",");
-		printf(" ");
+		next = a + b;
+		a = b;
+		b = next;
+		printf("%lu", next);
+
+		if (i < 97)
+			printf(", ");
 		i++;
 	}
-
-	h4 = f / 1000000000;
-	h3 = f % 1000000000;
-	h2 = s / 1000000000;
-	h1 = s % 1000000000;
-	while (i < 97)
-	{
-		h0 = h4 + h2;
-		h5 = h3 + h1;
-		printf("%ld""%ld", h0, h5);
-		if (i != 96)
-		{
-			printf(",");
-			printf(" ");
-		}
-		h4 = h2;
-		h3 = h1;
-		h2 = h0;
-		h1 = h5;
-		i++;
-	}
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
