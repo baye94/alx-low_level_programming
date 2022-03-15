@@ -1,25 +1,21 @@
 #include "main.h"
 
 /**
- * main - -putchar
- * @void: Empty parameter list for main.
- *
- * Description: Prints _putchar  w/out stdio
- *
- * Return: 0 for success
-*/
+ *main - entry point
+ *Return: 0
+ */
 
 int main(void)
 
 {
-  _putchar(‘_’);
-  _putchar(‘p’);
-  _putchar(‘u’);
-  _putchar(’t’);
-  _putchar(‘c’);
-  _putchar(‘h’);
-  _putchar(‘a’);
-  _putchar(‘r);
-  _putchar('\n');
-  return (0);
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
+_putchar('\n');
+return (0);
 }
