@@ -13,7 +13,7 @@ int main(void)
     int index;
     char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/,.-+=~`<>:";
 	srand((unsigned int)(time(NULL)));   
-	for(index = 0; index < 15; index++)
+	for(index = 0; index < 10; index++)
 	{
 		printf("%c", characters[rand() % (sizeof characters - 1)]);
 	}
