@@ -2,7 +2,7 @@
 
 /**
  * _atoi - convert a string to an integer.
- * @s: char type string
+ * Main: char type string
  * Return: integer converted
  */
 
