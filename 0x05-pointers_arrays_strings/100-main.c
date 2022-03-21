@@ -9,8 +9,6 @@
 int main(void)
 {
     int n;
-    n = _atoi(""); 
-    printf("%d\n", n);
     n = _atoi("98"); 
     printf("%d\n", n);
     n = _atoi("-402");
