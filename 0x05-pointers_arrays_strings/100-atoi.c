@@ -3,6 +3,8 @@
 /**
  * _atoi - convert a string to an integer.
  * @s: char type string
+ * Description: Copy the string pointed to by pointer `src` to
+ * the buffer pointed to by `dest`
  * Return: integer converted
  */
 
