@@ -2,6 +2,7 @@
 
 /**
  * _atoi - convert a string to an integer.
+ * _strlen - determine if integer is negative
  * @s: char type string
  * Description: Copy the string pointed to by pointer `src` to _strlen
  * the buffer pointed to by `dest`
