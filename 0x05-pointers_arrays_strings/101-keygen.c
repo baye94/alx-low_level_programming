@@ -11,9 +11,9 @@
 int main(void)
 {
     int index;
-    char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/,.-+=~`<>:";
+    char characters[] = "abc/,.`<>:";
 	srand((unsigned int)(time(NULL)));   
-	for(index = 0; index < 5; index++)
+	for(index = 0; index < 12; index++)
 	{
 		printf("%c", characters[rand() % (sizeof characters - 1)]);
 	}
