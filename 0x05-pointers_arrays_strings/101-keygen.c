@@ -11,7 +11,7 @@
 int main(void)
 {
     int index;
-    char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/,.-+=~`<>:";
+    char characters[] = "abcdefghijUVWXYZ0123456789/,.-+=~`<>:";
 	srand((unsigned int)(time(NULL)));   
 	for(index = 0; index < 12; index++)
 	{
