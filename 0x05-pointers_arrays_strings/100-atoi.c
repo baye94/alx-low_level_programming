@@ -8,22 +8,25 @@
 
 int _atoi(char *s)
 {
-	int sign = 1, resp = 0, firstNum;
-	int i;
+	int len = 0, _sign, num;
 
-	for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
+	while (s[len] != 0)
+		len++;
+
+	_sign = 1;
+	while ((*s) == '-')
 	{
-		if (s[firstNum] == '-')
-		{
-			sign *= -1;
-		}
+		if (*s == '-')
+			_sign = _sign * -1;
+		s++;
 	}
 
-	for (i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
+	num = 0;
+	while ((*s >= '0') && (*s <= '9'))
 	{
-		resp *= 10;
-		resp += (s[i] - 48);
+		num = (num * 10) + ((*s) - '0');
+		s++;
 	}
 
-	return (sign * resp);
+	return (_sign * num);
 }
