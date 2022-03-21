@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main - check the code for  School students.
+ * main - check the code.
  *
  * Return: Always 0.
  */
@@ -11,7 +11,7 @@ int main(void)
     int n;
     n = _atoi("-2147483648");
 	printf("%d\n", n);
-    n = _atoi("8"); 
+    n = _atoi("98"); 
     printf("%d\n", n);
     n = _atoi("-402");
     printf("%d\n", n);
