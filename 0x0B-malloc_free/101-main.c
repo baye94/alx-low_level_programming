@@ -1,37 +1,21 @@
 #include "main.h"
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
+ * main - check the code for ALX School students.
  *
- * Return: nothing
- */
-void print_tab(char **tab)
-{
-    int i;
-
-    for (i = 0; tab[i] != NULL; ++i)
-    {
-        printf("%s\n", tab[i]);
-    }
-}
-
-/**
- * main - check the code for Holberton School students.
- *
- * Return: 1 if an error occurred, 0 otherwise
+ * Return: Always 0.
  */
 int main(void)
 {
-    char **tab;
-    printf("test\n");
-    tab = strtow("Holberton School         #cisfun");
+    char *s;
 
-    if (tab == NULL)
+    s = _strdup("Holberton");
+    if (s == NULL)
     {
-        printf("Failed\n");
+        printf("failed to allocate memory\n");
         return (1);
     }
-    print_tab(tab);
+    printf("%s\n", s);
+    free(s);
     return (0);
 }
