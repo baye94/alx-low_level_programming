@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdlib.h>
 
@@ -12,5 +12,6 @@ int _putchar(char c);
 int _atoi(const char *s);
 void print_int(unsigned long int n);
 void _puts(char *str);
+void _is_zero(char *argv[]);
 
 #endif
