@@ -2,28 +2,31 @@
 #include <stdlib.h>
 
 /**
- * main - prints the opcodes of its own function
- * @argc: arguement count
- * @argv: arguement vector
- *
- * Return: opcodes.
+ * main - Prints the opcodes of this function
+ * @argc: The number of command-line arguments
+ * @argv: The command-line arguments
  */
 int main(int argc, char *argv[])
 {
-	int num_of_bytes, i;
+	int n_bytes, i;
+	int (*prog)(int, char **) = &main;
 
-	if (argc != 2)
+	if (argc == 2)
+	{
+		n_bytes = atoi(argv[1]);
+		if (n_bytes < 0)
+		{
+			printf("Error\n");
+			exit(2);
+		}
+		for (i = 0; i < n_bytes; i++)
+			printf("%02x%c",
+				(unsigned char)*((char *)prog + i), i < n_bytes - 1 ? ' ' : '\n');
+	}
+	else
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	num_of_bytes = atoi(argv[i]);
-	if (num_of_bytes < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
-	system("gcc 100-main_opcodes.c -c");
-	system("objdump -D 100-main_opcodes.o");
 	return (0);
 }
