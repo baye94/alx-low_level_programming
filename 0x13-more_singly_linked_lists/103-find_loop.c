@@ -1,41 +1,38 @@
 #include "lists.h"
-
 /**
- * find_listint_loop - Finds the loop contained in
- *                     a listint_t linked list
- * @head: A pointer to the head of the listint_t list
- * Return: If there is no loop - NULL
- *         Else - the address of the node where the loop starts
+ * _check_and_find - Check the list and return the looping node
+ * @head: of list to check
+ * @prev: prev node on the list
+ *
+ * Return: Node that loops, or NULL
  */
-
-listint_t *find_listint_loop(listint_t *head)
+listint_t *_check_and_find(listint_t *head, listint_safe *prev)
 {
-	listint_t *tortoise, *hare;
+	listint_safe node, *tmp;
 
-	if (head == NULL || head->next == NULL)
+	if (head->next == NULL)
 		return (NULL);
 
-	tortoise = head->next;
-	hare = (head->next)->next;
+	node.next = prev;
+	node.addy = head;
+	tmp = node.next;
+	while (tmp != NULL && tmp->addy != head)
+		tmp = tmp->next;
+	if (tmp != NULL)
+		return (head);
 
-	while (hare)
-	{
-		if (tortoise == hare)
-		{
-			tortoise = head;
+	return (_check_and_find(head->next, &node));
+}
+/**
+ * find_listint_loop - find if list
+ * @head: of the list
+ *
+ * Return: Node that loops, or NULL
+ */
+listint_t *find_listint_loop(listint_t *head)
+{
+	if (head == NULL)
+		return (NULL);
 
-			while (tortoise != hare)
-			{
-				tortoise = tortoise->next;
-				hare = hare->next;
-			}
-
-			return (tortoise);
-		}
-
-		tortoise = tortoise->next;
-		hare = (hare->next)->next;
-	}
-
-	return (NULL);
+	return (_check_and_find(head, NULL));
 }
