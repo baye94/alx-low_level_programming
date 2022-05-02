@@ -1,6 +1,7 @@
 /*
- * File: 100-elf_header.c
- * Auth: Miheret Merid
+ * File - 100-elf_header.c
+ * Author: Baye cheikh fall
+ * Year: 2022
  */
 
 #include <elf.h>
@@ -21,6 +22,7 @@ void print_osabi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
+
 /**
  * check_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
@@ -43,6 +45,7 @@ void check_elf(unsigned char *e_ident)
 		}
 	}
 }
+
 /**
  * print_magic - Prints the magic numbers of an ELF header.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
@@ -58,7 +61,8 @@ void print_magic(unsigned char *e_ident)
 	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
-	if (index == EI_NIDENT - 1)
+
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
@@ -72,6 +76,7 @@ void print_magic(unsigned char *e_ident)
 void print_class(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
+
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
