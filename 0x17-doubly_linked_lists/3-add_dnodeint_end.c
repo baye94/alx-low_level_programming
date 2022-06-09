@@ -1,38 +1,42 @@
 #include "lists.h"
-#include <string.h>
-#include <stdio.h>
 
 /**
- * add_dnodeint_end - add a node at the end of a linked list
- * @head: The character to print
- * @n: string for the new node
- *
- * Return: new node
+ * add_dnodeint_end - function
+ * @head: double pointer
+ * @n: data node
+ * Return: 0 in case of finis or nothing otherwise
  */
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *current;
-	dlistint_t *new_node;
-
-	current = *head;
-	while (current && current->next != NULL)
-		current = current->next;
-
-	new_node = malloc(sizeof(dlistint_t));
+    /* allocate the memory and struct*/
+	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+    /* temporary node*/
+	dlistint_t *temp = (*head);
+	/* in case of fail*/
 	if (new_node == NULL)
-	{
-		free(new_node);
 		return (NULL);
-	}
+	/* allocat the data*/
 	new_node->n = n;
+    /* set the head */
 	new_node->next = NULL;
-    new_node->prev = current;
 
-	if (current)
-		current->next = new_node;
-	else
-		*head = new_node;
+	/* if linkes list is null*/
+	if ((*head) == NULL)
+	{
+		new_node->prev = NULL;
+		(*head) = new_node;
+		return (new_node);
+	}
+	/* Traversal*/
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	/* point the nexxt of the last node*/
+	temp->next = new_node;
+	/* assign prev of newNode to temp*/
+	 new_node->prev = temp;
 
-	return (new_node);
+return (new_node);
 }
