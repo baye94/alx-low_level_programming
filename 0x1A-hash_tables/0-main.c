@@ -1,18 +1,27 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "hash_tables.h"
 
 /**
- * main - check the code for Holberton School students.
+ * hash_table_create - creates a hash table
+ * @size: size of the array
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: pointer to the newly created hash table
  */
-int main(void)
+hash_table_t *hash_table_create(unsigned long int size)
 {
-	hash_table_t *ht;
+	hash_table_t *hash_table;
+	unsigned long int i;
 
-	ht = hash_table_create(1024);
-	printf("%p\n", (void *)ht);
-	return (EXIT_SUCCESS);
+	hash_table = malloc(sizeof(hash_table_t));
+	if (hash_table == NULL)
+		return (NULL);
+	hash_table->size = size;
+	hash_table->array = malloc(size * sizeof(hash_node_t *));
+	if (hash_table->array == NULL)
+	{
+		free(hash_table);
+		return (NULL);
+	}
+	for (i = 0; i < size; i++)
+		hash_table->array[i] = NULL;
+	return (hash_table);
 }
