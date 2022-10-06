@@ -1,1 +1,1 @@
-### search algorithms in C
+search algorithms in C
